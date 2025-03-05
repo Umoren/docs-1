@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import logo from "./logo.svg"
 import "./App.css"
 
-// highlight-start
 import { FrontendApi, Configuration, Session, Identity } from "@ory/client"
 
 // Get your Ory url from .env
@@ -18,6 +17,7 @@ const ory = new FrontendApi(
         [process.env.ORY_CI_RATE_LIMIT_HEADER || ""]:
           process.env.ORY_CI_RATE_LIMIT_HEADER_VALUE,
       },
+
     },
   }),
 )
@@ -30,15 +30,14 @@ function App() {
   const getUserName = (identity?: Identity) =>
     identity?.traits.email || identity?.traits.username
 
-  // highlight-end
 
-  // highlight-start
   // Second, gather session data, if the user is not logged in, redirect to login
   useEffect(() => {
     ory
       .toSession()
       .then(({ data }) => {
         // User has a session!
+        console.log('user session', data)
         setSession(data)
         ory.createBrowserLogoutFlow().then(({ data }) => {
           // Get also the logout url
@@ -46,9 +45,10 @@ function App() {
         })
       })
       .catch((err) => {
-        console.error(err)
+        console.error("Session error:", err?.response?.data || err)
         // Redirect to login page
-        window.location.replace(`${basePath}/ui/login`)
+        window.location.href = `${basePath}/ui/login`
+
       })
   }, [])
 
@@ -56,7 +56,6 @@ function App() {
     // Still loading
     return <h1>Loading...</h1>
   }
-  // highlight-end
 
   return (
     <div className="App">
@@ -65,21 +64,12 @@ function App() {
         <p>
           Welcome to Ory,{" "}
           {
-            // highlight-next-line
             getUserName(session?.identity)
           }
           .
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
         {
-          // highlight-next-line
           // Our logout link
           <a href={logoutUrl}>Logout</a>
         }

@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "code-examples", "code-examples", "{0680F1FC-266A-B2F0-00ED-4943F979513D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "protect-page-login", "protect-page-login", "{F66D3DE9-EB2C-1CDD-841A-6665AFA5003F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{9410FD4E-54CC-5F32-EDB4-4B5B5CDAB68E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicExample", "code-examples\protect-page-login\dotnet\01-basic\BasicExample.csproj", "{8D3EC085-55B6-3C30-45B1-7F7E44428E67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D3EC085-55B6-3C30-45B1-7F7E44428E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3EC085-55B6-3C30-45B1-7F7E44428E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3EC085-55B6-3C30-45B1-7F7E44428E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3EC085-55B6-3C30-45B1-7F7E44428E67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F66D3DE9-EB2C-1CDD-841A-6665AFA5003F} = {0680F1FC-266A-B2F0-00ED-4943F979513D}
+		{9410FD4E-54CC-5F32-EDB4-4B5B5CDAB68E} = {F66D3DE9-EB2C-1CDD-841A-6665AFA5003F}
+		{8D3EC085-55B6-3C30-45B1-7F7E44428E67} = {9410FD4E-54CC-5F32-EDB4-4B5B5CDAB68E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25DCA5D7-E710-4DE9-9553-6BD6F9435C79}
+	EndGlobalSection
+EndGlobal

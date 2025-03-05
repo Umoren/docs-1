@@ -18,14 +18,14 @@ import webm from '../_static/expressjs/screencast.webm'
 
 ## Create Express.js app
 
-First we create a new Express.js project:
+First, create a new Express.js project manually:
 
 ```shell
 mkdir your-project
 cd your-project
 
-npx express-generator
-npm i
+npm init -y
+npm i express pug cookie-parser
 ```
 
 ## Install Ory SDK and CLI
@@ -54,7 +54,7 @@ Now that the Ory CLI is installed, let's add it as a `npm run` script to our pro
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node app.js",
     "proxy": "ory proxy --no-jwt --port 4000 http://localhost:3000/"
   },
   "dependencies": {
@@ -69,10 +69,10 @@ Next we add a session check to the default home page of the example application.
 whether the user is signed in, and redirect them to the login page if not:
 
 ```mdx-code-block
-import homePage from '!!raw-loader!../../../code-examples/protect-page-login/expressjs/routes/index.js'
+import homePage from '!!raw-loader!../../../code-examples/protect-page-login/expressjs/app.js'
 import CodeBlock from '@theme/CodeBlock'
 
-<CodeBlock language="js" title="routes/index.js">{homePage}</CodeBlock>
+<CodeBlock language="js" title="app.js">{homePage}</CodeBlock>
 ```
 
 ## Run your Express.js app
